@@ -1,0 +1,392 @@
+@font-face {
+  font-family: "Mona Sans";
+  src: url("Mona-Sans.woff2") format("woff2 supports variations"),
+    url("Mona-Sans.woff2") format("woff2-variations");
+  font-weight: 200 900;
+  font-stretch: 75% 125%;
+}
+:root {
+  --header-height: 3.5rem;
+  /* FONT and TYPOGRAPHY */
+  --biggest-font-size: 2.75rem;
+  --bigger-font-size: 2.5rem;
+  --big-font-size: 1.75rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.815rem;
+  --smaller-font-size: 0.75rem;
+  /* FONTS */
+  --primary-font: Inter;
+  ---secondary-font: Montserrat;
+  /* COLORS */
+  --primary-color: rgb(0, 153, 255);
+  --secondary-color: rgba(41, 83, 147, 1);
+  /* SHADOW IMG */
+  --shadow-img: drop-shadow(0 8px 12px hsla(0, 0%, 0%, 0.2));
+}
+@media screen and (min-width: 1150px) {
+  :root {
+    --biggest-font-size: 5.5rem;
+    --big-font-size: 3rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.815rem;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-size: var(--normal-font-size);
+  font-family: var(--primary-font);
+  color: black;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+main {
+  overflow: hidden;
+}
+input,
+button,
+a,
+textarea,
+li {
+  font-size: var(--normal-font-size);
+  border: none;
+  text-decoration: none;
+  color: black;
+  outline: none;
+  list-style-type: none;
+}
+.home__btn button a {
+  color: white;
+}
+.home__btn button a:hover {
+  color: rgb(0, 119, 182);
+}
+.home__btn button {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+/* REUSABLE CLASSES */
+.container {
+  max-width: 1160px;
+  margin-inline: 1.5rem;
+}
+.section {
+  padding-block: 5rem 1rem;
+}
+.grid {
+  display: grid;
+  row-gap: 2.5rem;
+}
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+/* HEADER AND NAV */
+.logo__img {
+  width: 1.85rem;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+}
+.nav__close,
+.nav__toggle,
+.service__digital,
+.service__website,
+.service__graphic,
+.service__advert {
+  font-size: 1.25rem;
+}
+.nav {
+  display: flex;
+  height: var(--header-height);
+  align-items: center;
+  justify-content: space-between;
+}
+.nav__list {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 1150px) {
+  .nav__menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 75%;
+    background: transparent;
+    backdrop-filter: blur(24px);
+    padding-top: 4.5rem;
+    height: 100%;
+    padding-right: 1.5rem;
+    transition: all 0.4s;
+  }
+  .nav__list {
+    align-items: center;
+    row-gap: 2.5rem;
+  }
+  .nav__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+}
+.show-menu {
+  right: 0;
+}
+/* HOME */
+.home__title {
+  font-family: var(---secondary-font);
+  font-weight: 600;
+  padding-block: 0.5rem;
+  font-size: var(--big-font-size);
+}
+.home__title,
+.home__desc {
+  text-align: center;
+}
+.home__desc {
+  color: #414141;
+}
+.home__title span {
+  background: linear-gradient(to right, rgb(0, 119, 182), rgb(0, 180, 216));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.home__btn {
+  display: flex;
+  margin-top: 0.5rem;
+  justify-content: center;
+}
+/* HEADER CHANGE IN COLOR */
+.shadow-header {
+  background-color: white;
+  box-shadow: 0 2px 16px hsla(0, 0%, 0%, 0.1);
+}
+.home__btn button {
+  padding: 0.5rem 0.75rem;
+  background-color: var(--primary-color);
+  background-image: linear-gradient(
+    to right,
+    rgb(0, 180, 216) rgb(0, 119, 182)
+  );
+  font-family: var(---secondary-font);
+  color: white;
+  border-radius: 0.5rem;
+  transition: background 0.3s, color 0.4s;
+}
+.home__btn button:hover {
+  background-color: white;
+  border: 1px solid rgb(0, 119, 182);
+  color: rgb(0, 119, 182);
+}
+/* SERVICE */
+.service__title {
+  text-align: center;
+  font-family: var(---secondary-font);
+}
+.service__title span {
+  background: linear-gradient(to right, rgb(0, 119, 182), rgb(0, 180, 216));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.service__grid {
+  padding-block: 3.25rem 1rem;
+  grid-template-columns: 275px;
+  justify-content: center;
+}
+.service__card {
+  position: relative;
+  padding: 6rem 1rem 3rem;
+  background-color: white;
+  z-index: 5;
+  border: 3px solid #414141;
+  border-radius: 0.25rem;
+}
+.service__subtitle {
+  font-family: var(---secondary-font);
+  margin-top: 0.5rem;
+}
+.service__card p {
+  padding-top: 0.125rem;
+}
+.service__content {
+  height: 100%;
+  background-color: white;
+  transition: background 0.4s, border 0.4s;
+  position: relative;
+}
+/* ABOUT */
+.about__wrapper {
+  grid-template-columns: 270px;
+  justify-content: center;
+}
+.about__title {
+  text-align: center;
+  font-family: var(---secondary-font);
+  font-size: var(--big-font-size);
+}
+.about__title span {
+  background: linear-gradient(to right, rgb(0, 119, 182), rgb(0, 180, 216));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+/* CONTACT */
+.contact__form form div textarea {
+  max-width: 1440px;
+  resize: none;
+  width: 100%;
+  background-color: rgb(0, 180, 216);
+  color: white;
+  font-family: var(--primary-font);
+  border-radius: 0.25rem;
+  height: 200px;
+  padding: 0.5rem;
+}
+.contact__form form div input {
+  max-width: 1440px;
+  width: 100%;
+  padding: 0.5rem;
+  background-color: rgb(0, 180, 216);
+  margin-bottom: 0.5rem;
+  color: white;
+  border-radius: 0.25rem;
+  font-family: var(--primary-font);
+}
+.contact__form form div input::placeholder,
+.contact__form form div textarea::placeholder {
+  color: white;
+}
+.contact__title {
+  text-align: center;
+  padding-bottom: 0.5rem;
+  font-family: var(---secondary-font);
+}
+.contact__desc {
+  text-align: center;
+}
+.contact__phone {
+  text-align: center;
+}
+.contact__btn {
+  display: flex;
+  padding-top: 0.5rem;
+  justify-content: flex-end;
+}
+.contact__submit {
+  padding: 0.75rem 0.5rem;
+  color: white;
+  font-family: var(---secondary-font);
+  background-color: rgb(0, 153, 255);
+  border-radius: 0.5rem;
+  transition: all 0.4s;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.contact__submit:hover {
+  transform: translateY(-0.5rem);
+}
+@media screen and (max-width: 300px) {
+  .container {
+    margin-inline: 1rem;
+  }
+}
+@media screen and (min-width: 576px) {
+  .service__grid,
+  .about__wrapper {
+    grid-template-columns: 370px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .service__grid,
+  .about__wrapper {
+    grid-template-columns: repeat(2, 300px);
+    gap: 1.25rem;
+    justify-content: center;
+  }
+  .about__img {
+    width: 300px;
+  }
+  .about__desc {
+    padding-top: 2.5rem;
+  }
+  .section {
+    padding-block: 6rem 1rem;
+  }
+  .contact__wrapper {
+    grid-template-columns: 600px;
+    justify-content: center;
+  }
+}
+/* SCROLLBAR */
+::-webkit-scrollbar {
+  width: 0.6rem;
+  border-radius: 0.75rem;
+  background-color: white;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 0.75rem;
+  background: linear-gradient(to right, rgb(0, 119, 182), rgb(0, 180, 216));
+}
+.contact__title span {
+  background: linear-gradient(to right, rgb(0, 119, 182), rgb(0, 180, 216));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+@media screen and (min-width: 1150px) {
+  .container {
+    margin-inline: auto;
+  }
+  .nav__toggle,
+  .nav__close {
+    display: none;
+  }
+  .nav__list {
+    flex-direction: row;
+    column-gap: 1.75rem;
+  }
+  .section {
+    padding-block: 7rem 1rem;
+  }
+  .service__title {
+    font-size: var(--h1-font-size);
+  }
+  .service__grid {
+    grid-template-columns: repeat(4, 275px);
+  }
+  .about__wrapper {
+    grid-template-columns: 600px 400px;
+  }
+  .about__content {
+    padding-top: 7rem;
+    width: 400px;
+  }
+  .about__img {
+    width: 100%;
+  }
+  .contact__wrapper {
+    grid-template-columns: 400px 600px;
+  }
+  .about__desc {
+    font-size: var(--h3-font-size);
+  }
+  .contact__title {
+    font-size: var(--h1-font-size);
+  }
+}
